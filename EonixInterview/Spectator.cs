@@ -4,15 +4,18 @@ namespace EonixInterview
 {
     public class Spectator : IObserver
     {
+        private readonly ILogger logger;
+
         public string spectatorName { get; }
 
-        public Spectator(string spectatorName)
+        public Spectator(string spectatorName, ILogger logger)
         {
             if (spectatorName == null)
             {
                 throw new ArgumentNullException(nameof(spectatorName));
             }
             this.spectatorName = spectatorName;
+            this.logger = logger;
         }
 
         #region Pattern Observer
@@ -32,9 +35,9 @@ namespace EonixInterview
             switch ((int)trick.trickType)
             {
                 case 0:
-                    Console.WriteLine($"spectateur applaudit pendant le tour {trick.trickType} '{trick.trickName}' du {monkey.Name}"); break;
+                    logger.LogMessage($"Spectateur applaudit pendant le tour {trick.trickType} '{trick.trickName}' du {monkey.Name}"); break;
                 case 1:
-                    Console.WriteLine($"spectateur siffle pendant le tour {trick.trickType} '{trick.trickName}' du {monkey.Name}"); break;
+                    logger.LogMessage($"spectateur siffle pendant le tour {trick.trickType} '{trick.trickName}' du {monkey.Name}"); break;
             }
         }
 

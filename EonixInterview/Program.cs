@@ -6,7 +6,8 @@ namespace EonixInterview
     {
         static void Main()
         {
-            Spectator spectator = new Spectator("Nicolas");
+            var logger = new ConsoleLogger();
+            Spectator spectator = new Spectator("Nicolas", logger);
         
             Monkey monkey1 = new Monkey("Singe 1");
             Trainer trainer1 = new Trainer("Dresseur1", monkey1);
@@ -29,22 +30,22 @@ namespace EonixInterview
             trainer2.Monkey.LearnTrick(new Trick("Jouer du triangle", TrickType.Musique));
             trainer2.Monkey.LearnTrick(new Trick("Chanter", TrickType.Musique));
 
-            Console.WriteLine($"===================       {trainer1.Monkey.Name} will start the show !  ================================");
+            logger.LogMessage($"===================       {trainer1.Monkey.Name} will start the show !  ================================");
 
             foreach (var trick in trainer1.Monkey.GetAllTricks())
             {
                 trainer1.Monkey.PerformTrick(trick);
             }
-            Console.WriteLine($"====================      {trainer1.Monkey.Name} end the show !        ===============================");
-            Console.WriteLine();
-            Console.WriteLine($"====================      {trainer2.Monkey.Name} will start the show ! ===============================");
+            logger.LogMessage($"====================      {trainer1.Monkey.Name} end the show !        ===============================");
+            logger.LogMessage();
+            logger.LogMessage($"====================      {trainer2.Monkey.Name} will start the show ! ===============================");
 
             foreach (var trick in trainer2.Monkey.GetAllTricks())
             {
                 trainer2.Monkey.PerformTrick(trick);
             }
 
-            Console.WriteLine($"====================      {trainer2.Monkey.Name} end the show !        ===============================");
+            logger.LogMessage($"====================      {trainer2.Monkey.Name} end the show !        ===============================");
 
         }
     }
