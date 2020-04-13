@@ -7,11 +7,11 @@ namespace EonixInterview
         static void Main()
         {
             Spectator spectator = new Spectator("Nicolas");
-
-            Monkey monkey1 = new Monkey("singe 1");
+        
+            Monkey monkey1 = new Monkey("Singe 1");
             Trainer trainer1 = new Trainer("Dresseur1", monkey1);
 
-            Monkey monkey2 = new Monkey("singe 2");
+            Monkey monkey2 = new Monkey("Singe 2");
             Trainer trainer2 = new Trainer("Dresseur2", monkey2);
 
             trainer1.Monkey.Attach(spectator);
