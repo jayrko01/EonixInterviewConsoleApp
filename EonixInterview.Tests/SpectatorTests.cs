@@ -21,33 +21,6 @@ namespace EonixInterview.Tests
         [Fact]
         public void ObserversAreNotifiedWhenStateChanges_TestObserver_ObserverNotified()
         {
-            ////Arrange
-            //var spectatorMock = Substitute.For<IObserver>();
-            //var spectator2Mock = Substitute.For<IObserver>();
-
-            //var monkeyName = "Singe1";
-            //var monkey = new Monkey(monkeyName);
-            //var trickName = "Salto";
-            //var trickType = TrickType.Acrobatie;
-
-            //var trick = new Trick(trickName, trickType);
-
-            //monkey.Attach(spectatorMock);
-            //monkey.Attach(spectator2Mock);
-
-            ////Act - Assert
-            //monkey.PerformTrick(trick);
-
-            //spectatorMock.Received(1).Update(monkey, trick);
-            //spectator2Mock.Received(1).Update(monkey, trick);
-
-            //monkey.Detach(spectator2Mock);
-            //spectator2Mock.ClearReceivedCalls();
-
-            //monkey.PerformTrick(trick);
-            //spectatorMock.Received(2).Update(monkey, trick);
-            //spectator2Mock.DidNotReceive().Update(monkey, trick);
-
             //Arrange
             var spectatorMock = new Mock<IObserver>();
             var spectator2Mock = new Mock<IObserver>();
@@ -124,7 +97,7 @@ namespace EonixInterview.Tests
             var spectator = new Spectator(spectatorName, loggerMock.Object);
             Monkey monkey = null;
 
-            //Act - Asset
+            //Act - Assert
             Assert.Throws<ArgumentNullException>("monkey", () => spectator.Update(monkey, trick));
         }
 
@@ -138,7 +111,7 @@ namespace EonixInterview.Tests
             var monkeyName = "Singe1";
             var monkey = new Monkey(monkeyName);
 
-            //Act - Asset
+            //Act - Assert
             Assert.Throws<ArgumentNullException>("trick", () => spectator.Update(monkey, trick1));
         }
 
